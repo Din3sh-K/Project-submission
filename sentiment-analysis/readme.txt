@@ -1,1 +1,18 @@
-
+Sentiment analysis using NLP which returns if the review is positive,negative,neutral
+->First we need to import the data for analysis 
+->I used a random csv file i got from kaggle and imported it to colab file
+->these data are read into variable using pandas
+->after droping unwanted features we start the analysis
+-> in this data there are many reviews whuch may be same and we check those and remove using drop_duplicates() to reduce th complexity and time for processing the data
+->In order to process these data of review we need to download nltk.download('vader_lexicon') which contains a data of words mapped with some value,And that values is helpful to know the depth of that word in other words returns sentiment score for calculation 
+->In our data we have words which does not play any role likw (and ,the etc) can be removed for efficiency using 'nltk.download('stopwords')' which contains these words which are not required by using this data we remove the words in our data. and this supports 29 languages
+->we Import langdetect to detect the languages used in the review data and label them in a new column for better refernce using pandas
+->inoreder to correct the speling mistakes spellchecker is imported and used 
+-> after scoring each reviews using 'vader' we imported ,we say it is positive or negative using the range of score
+-> in my project i labelled them negative if sentiment score is <-0.5 and positive if x>0.35 else neutral
+->the count of those positive,negative and neutral is caluclated and represented in graphical visualisation using matlplot which sows the percentage of these in those reviews
+->wordcloud is imported and used for printing an image of commonly used words in reviews and the text size is proprtional to occurance of those words
+-> And we can observe in our data the positive review and negative review has most frequent uncommon word is good and bad , and all has common word as film and movie
+->To check the accuracy we split this into train and test using sklearn for training and testing the accuracy
+->using keras,tokeniser the text data are converted into vectors for better calculation and to prediction training
+-> after all training and testing with this data i trained it to get accuracy of 0.61....
